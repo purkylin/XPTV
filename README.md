@@ -1,1 +1,33 @@
-### 有问题请前往TG群组[XPTV](https://t.me/seeseeni) 或查看 [XPTV指南](https://meteor-lemongrass-68b.notion.site/XPTV-b60fcb3db53841229f9ec7352c5fda26?pvs=74)
+## Supported JS functions
+
+```javascript
+
+// alert
+alert("Hello World")
+
+// log
+console.log("Hi")
+console.log("Hi", "Tom")
+
+// cache
+const v = $cache.get('key')
+$cache.set('key', 'value')
+$cache.del('key')
+
+// network， default method for post: x-www-form-urlencoded
+const { data } = $fetch.get('http://xx.com', {headers: {}})
+const { data } = await $fetch.post('http://xx.com', {name: 'xx'}, {headers: {}})
+
+// json parse
+const $config = argsify($config_str)
+
+// parse html
+const cheerio = createCheerio()
+
+// crypto
+const CryptoJS = createCryptoJS()
+
+// toast
+native_toast("Comming")
+
+```

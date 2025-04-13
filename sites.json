@@ -128,6 +128,7 @@
             "name": "愛壹帆",
             "type": 3,
             "api": "csp_iyftv",
+            "icon": "https://favicon.im/www.iyf.tv",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/iyftv.js"
         },
         {

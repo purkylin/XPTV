@@ -13,7 +13,7 @@
         "author": "purkylin",
         "version": "0.0.2",
         "update_time": "2025-01-13T12:41:00Z",
-        "endpoint": "https://9228.eu/youtube/info",
+        "endpoint": "https://9228.eu/youtube/info"
     },
     {
         "id": "vod1",
@@ -26,7 +26,7 @@
         "version": "0.0.2",
         "icon": "https://favicon.im/www.czzymovie.com",
         "update_time": "2025-03-29T16:37:00Z",
-        "endpoint": "https://raw.githubusercontent.com/purkylin/XPTV/refs/heads/dev/sites.json"
+        "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/CMS/XPTV.json"
     },
     {
         "id": "vod2",

@@ -12,50 +12,50 @@
             "api": "csp_bde4",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/bdys.js"
         },
-        { 
-            "name": "欧乐🪜", 
-            "type": 3, 
+        {
+            "name": "欧乐🪜",
+            "type": 3,
             "api": "csp_Olevod",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/ole.js",
             "ext2": "https://ghp.xptvhelper.link/https://gist.githubusercontent.com/occupy-pluto/ce9bf8248a15acb87e6b55e382fb8e4b/raw/ole.js"
         },
-         { 
-            "name": "在线之家", 
-            "type": 3, 
+        {
+            "name": "在线之家",
+            "type": 3,
             "api": "csp_Zxzj",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/zxzj.js",
             "ext2": "https://ghp.xptvhelper.link/https://gist.githubusercontent.com/occupy-pluto/13a199a1a85c619f948d40e6c5a12c21/raw/zxzj.js"
         },
-        { 
-            "name": "LIBVIO", 
-            "type": 3, 
+        {
+            "name": "LIBVIO",
+            "type": 3,
             "api": "csp_libvio",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/libvio.js",
             "ext2": "https://ghp.xptvhelper.link/https://gist.githubusercontent.com/occupy-pluto/67cc3a53a26c631e32ed2f37e19e479d/raw/libvio.js"
         },
-        { 
-            "name": "低端影视", 
-            "type": 3, 
+        {
+            "name": "低端影视",
+            "type": 3,
             "api": "csp_ddys",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/ddys.js"
         },
-         { 
-            "name": "ギリギリ动漫", 
-            "type": 3, 
+        {
+            "name": "ギリギリ动漫",
+            "type": 3,
             "api": "csp_ai",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/ai.js",
             "ext2": "https://ghp.xptvhelper.link/https://gist.githubusercontent.com/occupy-pluto/5185fa59944d5b8af625b2c83604d397/raw/girl.js"
         },
-        { 
-            "name": "独播库", 
-            "type": 3, 
+        {
+            "name": "独播库",
+            "type": 3,
             "api": "csp_duboku",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/duboku.js",
             "ext2": "https://ghp.xptvhelper.link/https://gist.githubusercontent.com/occupy-pluto/f6cf4425bf7d1815a26323ade89ea593/raw/duboku.js"
         },
-        { 
-            "name": "AGE动漫", 
-            "type": 3, 
+        {
+            "name": "AGE动漫",
+            "type": 3,
             "api": "csp_age",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/age.js",
             "ext2": "https://ghp.xptvhelper.link/https://gist.githubusercontent.com/occupy-pluto/e3a7bb98d5027d0f6dfa85fc2ac11a78/raw/agedm.js"
@@ -144,11 +144,11 @@
             "api": "csp_sgsd",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/sgsd.js"
         },
-         {
+        {
             "name": "影视天堂",
             "type": 3,
             "api": "csp_ystt",
-            "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/ystt.js"
+            "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/purkylin/XPTV/refs/heads/dev/js/ystt.js"
         },
         {
             "name": "hdmoli",

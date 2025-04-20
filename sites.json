@@ -12,14 +12,14 @@
             "name": "哔滴影视",
             "type": 3,
             "api": "csp_bde4",
-            "icon": "https://favicon.im/www.bidiys.cc",
+            "icon": "https://www.ysttv.com/static/assets/images/logo_text.png",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/bdys.js"
         },
         { 
             "name": "欧乐🪜", 
             "type": 3, 
             "api": "csp_Olevod",
-            "icon": "https://favicon.im/www.olevod.com",
+            "icon": "https://m.jiabaide.cn/_next/image?url=https%3A%2F%2Fobs.gduamoe.com%2Fupload%2Fsite_logo%2F20250210-1%2F0c3035dd563e20ecbb49e2562841bace.png&w=256&q=75",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/ole.js",
             "ext2": "https://ghp.xptvhelper.link/https://gist.githubusercontent.com/occupy-pluto/ce9bf8248a15acb87e6b55e382fb8e4b/raw/ole.js"
         },

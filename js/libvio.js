@@ -97,7 +97,7 @@ async function getTracks(ext) {
   const { data } = await $fetch.get(url, {
     headers
   })
-
+  
   const $ = cheerio.load(data)
 
   $('div.stui-vodlist__head').each((_, each) => {
@@ -133,26 +133,24 @@ async function getPlayinfo(ext) {
   let player = obj.url
   if (player.startsWith('http')) {
     return jsonify({
-      urls: [player],
-      headers: [headers],
+      urls: [ player ],
+      headers: [ headers ],
     })
   }
 
-  const data2 = (await $fetch.get(`${appConfig.site}/vid/plyr?${dictToURI({ url: obj.url, id: obj.id, nid: obj.nid })}`, {
+  const data2 = (await $fetch.get(`${appConfig.site}/vid/plyr?${dictToURI({url: obj.url, id: obj.id, nid: obj.nid})}`, {
     headers
   })).data
-  return data2;
-
-  // const cdn = data2.match(/var vid = '(http.*)';/)[1]
-  // $print(`***cdn: ` + cdn)
-  // if (cdn.startsWith('http')) {
-  //   return jsonify({
-  //     urls: [ cdn ],
-  //   })
-  // }
-  // return jsonify({
-  //   urls: [],
-  // })
+  const cdn = data2.match(/var vid = '(http.*)';/)[1]
+  $print(`***cdn: ` + cdn)
+  if (cdn.startsWith('http')) {
+    return jsonify({
+      urls: [ cdn ],
+    })
+  }
+  return jsonify({
+    urls: [],
+  })
 }
 
 async function search(ext) {
@@ -171,7 +169,7 @@ async function search(ext) {
   const { data } = await $fetch.get(url, {
     headers
   })
-
+  
   const $ = cheerio.load(data)
   $('a.stui-vodlist__thumb').each((_, each) => {
     const path = $(each).attr('href')
@@ -189,14 +187,14 @@ async function search(ext) {
   })
 
   return jsonify({
-    list: cards,
+      list: cards,
   })
 }
 
 function dictToURI(dict) {
   var str = [];
-  for (var p in dict) {
-    str.push(encodeURIComponent(p) + "=" + encodeURIComponent(dict[p]));
+  for(var p in dict){
+     str.push(encodeURIComponent(p) + "=" + encodeURIComponent(dict[p]));
   }
   return str.join("&");
 }

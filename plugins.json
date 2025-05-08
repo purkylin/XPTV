@@ -35,9 +35,9 @@
         "rule": "",
         "cache": 21600,
         "author": "purkylin",
-        "version": "0.0.2",
-        "update_time": "2025-03-29T16:37:00Z",
-        "endpoint": "https://github.com/fangkuia/XPTV/raw/refs/heads/main/VOD/XPTV.json"
+        "version": "0.0.3",
+        "update_time": "2025-05-08T16:37:00Z",
+        "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/Patch/vod.json"
     },
     {
         "id": "vod3",

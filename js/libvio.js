@@ -138,7 +138,7 @@ async function getPlayinfo(ext) {
     })
   }
 
-  const data2 = (await $fetch.get(`${appConfig.site}/vid/ty4.php?${dictToURI({url: obj.url, id: obj.id, nid: obj.nid})}`, {
+  const data2 = (await $fetch.get(`${appConfig.site}/vid/plyr?${dictToURI({url: obj.url, id: obj.id, nid: obj.nid})}`, {
     headers
   })).data
   const cdn = data2.match(/var vid = '(http.*)';/)[1]

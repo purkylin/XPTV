@@ -88,7 +88,7 @@
             "name": "素白白影視",
             "type": 3,
             "api": "csp_subaibai",
-            "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/subaibai.js"
+            "ext": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/js/subaibai.js"
         },
         {
             "name": "NO視頻",

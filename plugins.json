@@ -62,5 +62,17 @@
         "update_time": "2025-03-30T16:37:00Z",
         "adult": true,
         "endpoint": "https://github.com/fangkuia/XPTV/raw/refs/heads/main/VOD/XPAV.json"
-    }
+    },
+    {
+        "id": "vod5",
+        "name": "PAN",
+        "desc": "网盘",
+        "type": "vod",
+        "cache": 21600,
+        "author": "purkylin",
+        "version": "0.0.3",
+        "update_time": "2025-03-30T16:37:00Z",
+        "adult": true,
+        "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/VOD/PAN.json"
+    },
 ]

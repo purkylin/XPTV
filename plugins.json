@@ -75,4 +75,16 @@
         "adult": false,
         "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/VOD/PAN.json"
     },
+    {
+        "id": "quark",
+        "name": "quark",
+        "desc": "夸克网盘",
+        "type": "pan",
+        "cache": 21600,
+        "author": "purkylin",
+        "version": "0.0.1",
+        "update_time": "2025-05-28T16:37:00Z",
+        "adult": false,
+        "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/Patch/quark.js"
+    }
 ]

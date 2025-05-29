@@ -13,14 +13,13 @@
         "author": "purkylin",
         "version": "0.0.2",
         "update_time": "2025-01-13T12:41:00Z",
-        "endpoint": "https://9228.eu/youtube/info",
+        "endpoint": "https://9228.eu/youtube/info"
     },
     {
         "id": "vod1",
         "name": "CMS",
         "desc": "VOD",
         "type": "vod",
-        "rule": "",
         "cache": 21600,
         "author": "purkylin",
         "version": "0.0.2",
@@ -32,7 +31,6 @@
         "name": "VOD",
         "desc": "VOD",
         "type": "vod",
-        "rule": "",
         "cache": 21600,
         "author": "purkylin",
         "version": "0.0.3",
@@ -80,6 +78,9 @@
         "name": "quark",
         "desc": "夸克网盘",
         "type": "pan",
+        "rules": [
+            "https://pan.quark.cn/.*"
+        ],
         "cache": 21600,
         "author": "purkylin",
         "version": "0.0.1",

@@ -31,11 +31,12 @@ async function listDir(pdir_fid = "0", page = "1", size = "100", fetch_total = "
         __t: getTimestamp()
     });
 
-    const response = await $fetch.get(`https://drive-pc.quark.cn/1/clouddrive/file/sort?${params.toString()}`, {
+    const { data } = await $fetch.get(`https://drive-pc.quark.cn/1/clouddrive/file/sort?${params.toString()}`, {
         headers
     });
 
-    const result = await response.json();
+    const result = JSON.parse(data);
+    checkResult(result);
     const files = result.data.list.map(x => ({
         fid: x.fid,
         file_name: x.file_name,
@@ -64,22 +65,18 @@ async function handleSave(fid, pwd_id, stoken, share_fid_token) {
         scene: "link"
     };
 
-    const response = await $fetch.post(`${api_save}?${params.toString()}`, payload, {
+    console.log(params.toString());
+
+    // create save task
+    const { data: saveData } = await $fetch.post(`${api_save}?${params.toString()}`, payload, {
         headers,
     });
 
-    const result = await response.json();
-    if (result.code !== 0) {
-        console.log("创建转存任务失败", result.message);
-        return;
-    }
-
+    const result = JSON.parse(saveData);
+    checkResult(result);
     const task_id = result.data?.task_id;
-    if (!task_id) {
-        console.log("创建转存任务失败", result);
-        return;
-    }
 
+    // submit save task
     const api_submit = "https://drive-pc.quark.cn/1/clouddrive/task";
     const params_submit = new URLSearchParams({
         pr: "ucpro",
@@ -90,58 +87,48 @@ async function handleSave(fid, pwd_id, stoken, share_fid_token) {
         __dt: getRandomInt(10000, 99999).toString(),
         __t: getTimestamp()
     });
-
-    const submitResponse = await $fetch.post(`${api_submit}?${params_submit.toString()}`, {}, {
+    const { data: submitData } = await $fetch.get(`${api_submit}?${params_submit.toString()}`, {}, {
         headers
     });
-
-    const submitResult = await submitResponse.json();
-    if (submitResult.code !== 0) {
-        console.log("提交任务失败", submitResult.message);
-        return;
-    } else {
-        console.log("任务提交成功");
-    }
+    checkResult(JSON.parse(submitData));
 }
 
 async function saveShare(share_url, passcode = "") {
     const pwd_id = share_url.split("/s/").pop().split("?")[0];
 
+    // request stoken
     const api_stoken = "https://drive-pc.quark.cn/1/clouddrive/share/sharepage/token";
-    const stokenResponse = await $fetch.post(api_stoken, {
+    const { data: stokenData } = await $fetch.post(api_stoken, {
         pwd_id,
         passcode
     }, {
         headers
     });
 
-    const stokenResult = await stokenResponse.json();
+    const stokenResult = JSON.parse(stokenData);
+    checkResult(stokenResult);
     const stoken = stokenResult.data?.stoken;
-    if (!stoken) {
-        console.log("获取stoken失败");
-        return;
-    }
 
+    // request detail
     const api_detail = "https://drive-pc.quark.cn/1/clouddrive/share/sharepage/detail";
     const detailParams = new URLSearchParams({
         pwd_id,
         stoken,
         pdir_fid: "0"
     });
-
-    const detailResponse = await $fetch.get(`${api_detail}?${detailParams.toString()}`, {
+    const { data: detailData } = await $fetch.get(`${api_detail}?${detailParams.toString()}`, {
         headers
     });
 
-    const detailResult = await detailResponse.json();
+    const detailResult = JSON.parse(detailData);
+    checkResult(detailResult);
     const file_list = detailResult.data?.list || [];
     if (file_list.length === 0) {
-        console.log("未找到文件");
-        return;
+        throw new Error("未找到文件");
     }
-
     const { file_name: fname, dir: is_dir, fid, share_fid_token } = file_list[0];
 
+    // check file
     let files = await listDir();
     let target = files.find(u => u.file_name === fname);
     if (!target) {
@@ -160,7 +147,7 @@ async function saveShare(share_url, passcode = "") {
     }
 }
 
-async function fetchPlayUrl(fid) {
+async function getPlayInfo(fid) {
     const params = new URLSearchParams({
         pr: "ucpro",
         fr: "pc",
@@ -175,23 +162,28 @@ async function fetchPlayUrl(fid) {
 
     const url = "https://drive-pc.quark.cn/1/clouddrive/file/v2/play";
 
-    const response = await $fetch.post(`${url}?${params.toString()}`, data, {
+    const { data: playData } = await $fetch.post(`${url}?${params.toString()}`, data, {
         headers
     });
 
-    const result = await response.json();
-    if (result.code !== 0) {
-        console.log("获取播放地址失败", result);
-        return;
-    }
+    const playResult = JSON.parse(playData);
+    checkResult(playResult);
 
-    const videoList = result.data.video_list || [];
+    const videoList = playResult.data.video_list || [];
     for (const item of videoList) {
         const video_info = item.video_info;
         if (video_info) {
-            return video_info.url;
+            return {
+                'url': video_info.url,
+            };
         }
     }
 
-    return null;
+    throw new Error("未找到播放地址");
+}
+
+function checkResult(result) {
+    if (result.code !== 0) {
+        throw new Error(result.message);
+    }
 }

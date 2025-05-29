@@ -1,3 +1,4 @@
+const cookie = $cookie;
 const headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36 Core/1.94.225.400 QQBrowser/12.2.5544.400",
     "Origin": "https://pan.quark.cn",
@@ -39,7 +40,7 @@ async function listDir(pdir_fid = "0", page = "1", size = "100", fetch_total = "
     const files = result.data.list.map(x => ({
         fid: x.fid,
         file_name: x.file_name,
-        updated_at: x.l_updated_at,
+        updated_at: x.updated_at,
         is_dir: x.dir
     }));
     console.log("list dir success");
@@ -157,7 +158,8 @@ async function saveShare(share_url, passcode = "") {
         }
     } else {
         // 有误差，600秒内不更新
-        if (target.updated_at + 600 < updated_at) {
+        if (target.updated_at + 600 * 1000 < updated_at) {
+            console.log("time", target.updated_at, updated_at)
             $utils.toast("文件已更新");
         }
     }

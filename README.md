@@ -68,6 +68,7 @@ await $sleep(0.2)
         "cache": 21600,
         "author": "purkylin",
         "version": "0.0.2",
+        "icon": null,
         "update_time": "2025-03-29T16:37:00Z",
         "rules": [
             "https://pan.quark.cn/.*"
@@ -82,7 +83,23 @@ await $sleep(0.2)
 
 * vod插件
 
-必须实现的函数：
+插件定义中的`endpoint`指向的文件格式如下:
+```json
+{
+    "sites": [
+        {
+            "name": "MISSAV", 
+            "type": 3, 
+            "api": "csp_miss",
+            "icon": "https://example.com/icon.png",
+            "color": "#FF0000",
+            "ext": "https://example.com/test.js"
+        },
+    ]
+}
+```
+其中`icon`和`color`是可选的，`icon`是站点的图标，`color`是站点的背景色。
+`ext`字段是vod插件的核心， 指向一个js文件，必须实现如下函数：
 
 ```javascript
 async function getConfig() {

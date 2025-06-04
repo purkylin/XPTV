@@ -87,5 +87,17 @@
         "update_time": "2025-05-28T16:37:00Z",
         "adult": false,
         "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/Patch/quark.js"
+    },
+    {
+        "id": "trending",
+        "name": "Trending",
+        "desc": "TMDB Trending",
+        "type": "trending",
+        "rules": [],
+        "cache": 21600,
+        "author": "purkylin",
+        "version": "0.0.2",
+        "update_time": "2025-06-04T16:57:00Z",
+        "endpoint": null
     }
 ]

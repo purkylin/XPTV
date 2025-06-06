@@ -96,8 +96,18 @@
         "rules": [],
         "cache": 21600,
         "author": "purkylin",
-        "version": "0.0.2",
+        "version": "0.0.1",
         "update_time": "2025-06-04T16:57:00Z",
         "endpoint": null
+    },
+    {
+        "id": "douban",
+        "name": "豆瓣",
+        "desc": "豆瓣",
+        "type": "hot",
+        "author": "purkylin",
+        "version": "0.0.1",
+        "update_time": "2025-06-06T17:16:00Z",
+        "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/Patch/douban.js"
     }
 ]

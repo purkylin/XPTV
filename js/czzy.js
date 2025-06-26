@@ -155,6 +155,7 @@ async function getPlayinfo(ext) {
         if (jsurl) {
             let headers = {
                 'user-agent': UA,
+                'referer': appConfig.site,
             }
             if (jsurl.includes('player-v2')) {
                 headers['sec-fetch-dest'] = 'iframe'
@@ -163,6 +164,12 @@ async function getPlayinfo(ext) {
             }
 
             const jsres = await $fetch.get(jsurl, { headers: headers })
+            let mysvg = jsres.data.match(/mysvg = '(.+)'/);
+            if (mysvg) {
+                let mysvgurl = mysvg[1]
+                return jsonify({ urls: [mysvgurl], headers: [{ 'User-Agent': UA }] })
+            }
+
             const $2 = cheerio.load(jsres.data)
             const scripts = $2('script')
             if (scripts.length - 2 > 0) {

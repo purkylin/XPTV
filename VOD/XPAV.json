@@ -1,8 +1,8 @@
 {
     "sites": [
         {
-            "name": "MISSAV", 
-            "type": 3, 
+            "name": "MISSAV",
+            "type": 3,
             "api": "csp_miss",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/missav.js"
         },
@@ -94,7 +94,7 @@
             "name": "花都影視",
             "type": 3,
             "api": "csp_hdys",
-            "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/hdys.js"
+            "ext": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/Patch/hdys.js"
         },
         {
             "name": "肉视频",

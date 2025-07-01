@@ -59,7 +59,7 @@
         "version": "0.0.3",
         "update_time": "2025-03-30T16:37:00Z",
         "adult": true,
-        "endpoint": "https://github.com/fangkuia/XPTV/raw/refs/heads/main/VOD/XPAV.json"
+        "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/VOD/XPAV.json"
     },
     {
         "id": "vod5",

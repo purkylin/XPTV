@@ -1,12 +1,6 @@
 {
     "sites": [
         {
-            "name": "厂长资源",
-            "type": 3,
-            "api": "csp_czzy",
-            "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/czzy.js"
-        },
-        {
             "name": "哔滴影视",
             "type": 3,
             "api": "csp_bde4",
@@ -91,46 +85,16 @@
             "ext": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/js/subaibai.js"
         },
         {
-            "name": "NO視頻",
-            "type": 3,
-            "api": "csp_novipnoad",
-            "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/novipnoad.js"
-        },
-        {
             "name": "星芽短劇",
             "type": 3,
             "api": "csp_xingya",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/xingya.js"
         },
         {
-            "name": "瓜子",
-            "type": 3,
-            "api": "csp_guazi",
-            "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/gzys.js"
-        },
-        {
-            "name": "anfuns",
-            "type": 3,
-            "api": "csp_anfuns",
-            "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/anfuns.js"
-        },
-        {
             "name": "愛壹帆",
             "type": 3,
             "api": "csp_iyftv",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/iyftv.js"
-        },
-        {
-            "name": "天天影視",
-            "type": 3,
-            "api": "csp_tiantian",
-            "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/tiantian.js"
-        },
-        {
-            "name": "追光影视",
-            "type": 3,
-            "api": "csp_sgsd",
-            "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/sgsd.js"
         },
         {
             "name": "影视天堂",
@@ -167,6 +131,12 @@
             "type": 3,
             "api": "csp_xiaohys",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/xiaohys.js"
+        },
+        {
+            "name": "零度",
+            "type": 3,
+            "api": "csp_0du",
+            "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/0du.js"
         }
     ]
 }

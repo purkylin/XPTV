@@ -22,11 +22,11 @@ const params = new URLSearchParams({
     size: "10",
 });
 // get with query
-const { payload } = $fetch.get(`http://xx.com?${params.toString()}`, {headers: {}})
+const { data , status_code} = $fetch.get(`http://xx.com?${params.toString()}`, {headers: {}})
 // default method for post: x-www-form-urlencoded
-const { payload } = await $fetch.post('http://xx.com', {name: 'xx'}, {headers: {}})
+const { data } = await $fetch.post('http://xx.com', {name: 'xx'}, {headers: {}})
 // custom method for post: application/json
-const { payload } = await $fetch.post('http://xx.com', {name: 'xx'}, {headers: {'Content-Type': 'application/json'}})
+const { data } = await $fetch.post('http://xx.com', {name: 'xx'}, {headers: {'Content-Type': 'application/json'}})
 
 // parse html
 const cheerio = createCheerio()
@@ -38,6 +38,9 @@ const CryptoJS = createCryptoJS()
 
 // toast
 $utils.toast("This is a toast")
+
+// base64
+base64Decode('....')
 
 // open safari
 $utils.openSafari("https://www.google.com", 'custom User-Agent')
@@ -77,7 +80,7 @@ await $sleep(0.2)
     },
 ]
 ```
-目前支持三种插件，`type`可取的值为`vod`, `pan`, `yt-dlp`，`rules`是可选的，`rules`用于匹配url，`endpoint`是插件的地址。在你的插件定义中，需要保证`id`是唯一的。
+目前支持六种插件，`type`可取的值为`vod`, `pan`, `yt-dlp`, `trending`, `hot`, `danmaku`。`rules`字段是可选的，用于匹配url，`endpoint`是插件的地址。在你的插件定义中，需要保证`id`是唯一的。
 
 ## 支持的插件
 
@@ -203,10 +206,8 @@ async function getPlayInfo(fid) {
 
 * yt-dlp插件
 
-app会发起POST请求，请求体为JSON格式，包含url字段，值为视频地址，例如：
+app会发起GET请求，请求体为JSON格式，包含url字段，值为视频地址，例如：
 ```shell
-curl -X POST https://example.com/api \
-     -H "Content-Type: application/json" \
-     -d '{"url": "https://www.youtube.com/watch?v=x9X0aII0l70"}'
+curl -X GET https://example.com/api?url=https://www.youtube.com/watch?v=x9X0aII0l70
 ```
 直接返回yt-dlp的输出即可，如需Docker可参考这个[repo](https://github.com/purkylin/youtube-info)

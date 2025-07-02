@@ -131,12 +131,6 @@
             "type": 3,
             "api": "csp_xiaohys",
             "ext": "https://ghp.xptvhelper.link/https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/xiaohys.js"
-        },
-        {
-            "name": "零度",
-            "type": 3,
-            "api": "csp_0du",
-            "ext": "https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/zero.js"
         }
     ]
 }

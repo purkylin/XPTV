@@ -31,3 +31,9 @@ async function parse(url) {
     const { data } = await $fetch.get(`http://api.9228.eu/danmaku/resolve?${params.toString()}`);
     return data;
 }
+
+// return string
+async function search(keyword) {
+    const { data } = await $fetch.get(`http://api.9228.eu/danmaku/search?keyword=${keyword}`);
+    return data;
+}

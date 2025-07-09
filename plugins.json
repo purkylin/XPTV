@@ -12,7 +12,7 @@
         "cache": 21600,
         "author": "purkylin",
         "version": "0.0.2",
-        "update_time": "2025-06-24T12:41:00Z",
+        "update_time": "2025-07-02T10:45:00Z",
         "endpoint": "https://api.9228.eu/ytdlp/"
     },
     {
@@ -33,8 +33,8 @@
         "type": "vod",
         "cache": 21600,
         "author": "purkylin",
-        "version": "0.0.3",
-        "update_time": "2025-05-08T16:37:00Z",
+        "version": "0.0.4",
+        "update_time": "2025-07-02T10:45:00Z",
         "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/Patch/vod.json"
     },
     {
@@ -56,8 +56,8 @@
         "type": "vod",
         "cache": 21600,
         "author": "purkylin",
-        "version": "0.0.3",
-        "update_time": "2025-03-30T16:37:00Z",
+        "version": "0.0.4",
+        "update_time": "2025-07-02T10:45:00Z",
         "adult": true,
         "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/VOD/XPAV.json"
     },
@@ -68,8 +68,8 @@
         "type": "vod",
         "cache": 21600,
         "author": "purkylin",
-        "version": "0.0.3",
-        "update_time": "2025-03-30T16:37:00Z",
+        "version": "0.0.4",
+        "update_time": "2025-07-02T10:45:00Z",
         "adult": false,
         "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/VOD/PAN.json"
     },
@@ -116,8 +116,8 @@
         "desc": "Bilibili弹幕",
         "type": "danmaku",
         "author": "purkylin",
-        "version": "0.0.1",
-        "update_time": "2025-06-10T17:16:00Z",
+        "version": "0.0.2",
+        "update_time": "2025-07-09T10:45:00Z",
         "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/Patch/danmaku.js"
     }
 ]

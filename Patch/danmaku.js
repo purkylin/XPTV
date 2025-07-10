@@ -1,39 +1,50 @@
-// return string
-async function resolve(url, idx) {
-    const data = await parse(url);
-    const result = JSON.parse(data);
-
-    let episode = result.episodes.find(x => x.title == idx);
-    if (!episode) {
-        const num = parseInt(idx);
-        if (!isNaN(num) && num > 0 && num <= result.episodes.length) {
-            episode = result.episodes[num - 1];
-        } else {
-            episode = result.episodes[0];
-        }
-    }
-
-    console.log(episode);
-    return await danmaku(episode.cid, episode.duration);
-}
-
-// return string
-async function danmaku(cid, duration) {
-    const { data } = await $fetch.get(`http://api.9228.eu/danmaku/?cid=${cid}&duration=${duration}`);
-    return data;
-}
-
-// return string
-async function parse(url) {
-    const params = new URLSearchParams({
-        url,
-    });
-    const { data } = await $fetch.get(`http://api.9228.eu/danmaku/resolve?${params.toString()}`);
-    return data;
-}
+const endpoint = "http://api.9228.eu";
 
 // return string
 async function search(keyword) {
-    const { data } = await $fetch.get(`http://api.9228.eu/danmaku/search?keyword=${keyword}`);
+    const { data } = await $fetch.get(`${endpoint}/danmaku/search?keyword=${keyword}`);
+    const result = JSON.parse(data);
+    const items = result.map(x => ({
+        'id': `${x.sid}`,
+        'title': x.title,
+        'poster': x.poster,
+        'time': x.time,
+        'overview': x.overview,
+        'status': x.status,
+        'ext': JSON.stringify({
+            'sid': x.sid,
+        }),
+    }));
+    return JSON.stringify(items);
+}
+
+// return string
+async function resolve(ext, episode) {
+    const { sid } = JSON.parse(ext);
+
+    const { data } = await $fetch.get(`${endpoint}/danmaku/resolve?sid=${sid}`);
+    const result = JSON.parse(data);
+
+    let matchedEpisode = result.episodes.find(x => x.title == episode);
+    if (!matchedEpisode) {
+        const num = parseInt(episode);
+        if (!isNaN(num) && num > 0 && num <= result.episodes.length) {
+            matchedEpisode = result.episodes[num - 1];
+        } else {
+            matchedEpisode = result.episodes[0];
+        }
+    }
+
+    const items = await fetchDanmaku(matchedEpisode.cid, matchedEpisode.duration);
+    return JSON.stringify({
+        'sid': sid,
+        'episode': matchedEpisode.title,
+        'items': JSON.parse(items),
+    })
+}
+
+// return string
+async function fetchDanmaku(cid, duration) {
+    const { data } = await $fetch.get(`${endpoint}/danmaku/?cid=${cid}&duration=${duration}`);
     return data;
 }

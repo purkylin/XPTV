@@ -24,7 +24,7 @@
         "author": "purkylin",
         "version": "0.0.2",
         "update_time": "2025-03-29T16:37:00Z",
-        "endpoint": "https://github.com/fangkuia/XPTV/raw/refs/heads/main/CMS/XPTV.json"
+        "endpoint": "https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/CMS/XPTV.json"
     },
     {
         "id": "vod2",
@@ -35,7 +35,7 @@
         "author": "purkylin",
         "version": "0.0.4",
         "update_time": "2025-07-02T10:45:00Z",
-        "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/Patch/vod.json"
+        "endpoint": "https://raw.githubusercontent.com/purkylin/XPTV/refs/heads/dev/Patch/vod.json"
     },
     {
         "id": "vod3",
@@ -47,7 +47,7 @@
         "version": "0.0.3",
         "update_time": "2025-03-30T16:37:00Z",
         "adult": true,
-        "endpoint": "https://github.com/fangkuia/XPTV/raw/refs/heads/main/CMS/XPAV.json"
+        "endpoint": "https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/CMS/XPAV.json"
     },
     {
         "id": "vod4",
@@ -59,7 +59,7 @@
         "version": "0.0.4",
         "update_time": "2025-07-02T10:45:00Z",
         "adult": true,
-        "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/VOD/XPAV.json"
+        "endpoint": "https://raw.githubusercontent.com/purkylin/XPTV/dev/VOD/XPAV.json"
     },
     {
         "id": "vod5",
@@ -71,7 +71,7 @@
         "version": "0.0.4",
         "update_time": "2025-07-02T10:45:00Z",
         "adult": false,
-        "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/VOD/PAN.json"
+        "endpoint": "https://raw.githubusercontent.com/purkylin/XPTV/dev/VOD/PAN.json"
     },
     {
         "id": "quark",
@@ -86,7 +86,7 @@
         "version": "0.0.1",
         "update_time": "2025-05-28T16:37:00Z",
         "adult": false,
-        "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/Patch/quark.js"
+        "endpoint": "https://raw.githubusercontent.com/purkylin/XPTV/dev/Patch/quark.js"
     },
     {
         "id": "trending",
@@ -108,7 +108,7 @@
         "author": "purkylin",
         "version": "0.0.2",
         "update_time": "2025-06-10T17:16:00Z",
-        "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/Patch/douban.js"
+        "endpoint": "https://raw.githubusercontent.com/purkylin/XPTV/dev/Patch/douban.js"
     },
     {
         "id": "Bilibili",
@@ -118,6 +118,6 @@
         "author": "purkylin",
         "version": "0.0.2",
         "update_time": "2025-07-09T10:45:00Z",
-        "endpoint": "https://github.com/purkylin/XPTV/raw/refs/heads/dev/Patch/danmaku.js"
+        "endpoint": "https://raw.githubusercontent.com/purkylin/XPTV/dev/Patch/danmaku.js"
     }
 ]

@@ -1,65 +1,3 @@
-## 支持的JS函数
-
-```javascript
-
-// alert
-alert("Hello World")
-
-// log with parameters
-console.log("Hi")
-console.log("Hi", "Tom")
-console.log("Hi", {name: "Tom"})
-
-// cache
-const v = $cache.get('key')
-$cache.set('key', 'value')
-$cache.del('key')
-
-// network
-const params = new URLSearchParams({
-    wd: "tom",
-    page: "1",
-    size: "10",
-});
-// get with query
-const { data , status_code} = $fetch.get(`http://xx.com?${params.toString()}`, {headers: {}})
-// default method for post: x-www-form-urlencoded
-const { data } = await $fetch.post('http://xx.com', {name: 'xx'}, {headers: {}})
-// custom method for post: application/json
-const { data } = await $fetch.post('http://xx.com', {name: 'xx'}, {headers: {'Content-Type': 'application/json'}})
-
-// parse html
-const cheerio = createCheerio()
-const $ = cheerio.load(data)
-const script = $('#flarum-json-payload').text()
-
-// crypto
-const CryptoJS = createCryptoJS()
-
-// toast
-$utils.toast("This is a toast")
-
-// base64
-base64Decode('....')
-
-// open safari
-$utils.openSafari("https://www.google.com", 'custom User-Agent')
-
-// json
-let obj = {name: 'xx'}
-let str = JSON.stringify(obj) // alias: jsonify
-let obj2 = JSON.parse(str) // alias: argsify
-
-// config
-const $config = JSON.parse($config_str)
-
-// cookie, only for pan plugins, auto select cookie from your configs
-const cookie = $cookie
-
-// sleep, unit: second
-await $sleep(0.2)
-```
-
 ## 插件格式
 ```json
 [
@@ -68,22 +6,17 @@ await $sleep(0.2)
         "name": "CMS",
         "desc": "VOD",
         "type": "vod",
-        "cache": 21600,
         "author": "purkylin",
         "version": "0.0.2",
         "icon": null,
         "update_time": "2025-03-29T16:37:00Z",
-        "rules": [
-            "https://pan.quark.cn/.*"
-        ],
         "endpoint": "https://example.com/"
-    },
+    }
 ]
 ```
-目前支持六种插件，`type`可取的值为`vod`, `pan`, `yt-dlp`, `trending`, `hot`, `danmaku`。`rules`字段是可选的，用于匹配url，`endpoint`是插件的地址。在你的插件定义中，需要保证`id`是唯一的。
+目前支持的插件类型：vod, pan, yt-dlp, trending, hot, danmaku, proxy。
 
-## 支持的插件
-
+## 插件定义
 * vod插件
 
 插件定义中的`endpoint`指向的文件格式如下:
@@ -183,7 +116,6 @@ async function getPlayinfo(ext) {
 ```
 
 * pan插件
-  
 必须实现的函数：
 
 ```javascript
@@ -206,8 +138,110 @@ async function getPlayInfo(fid) {
 
 * yt-dlp插件
 
-app会发起GET请求，请求体为JSON格式，包含url字段，值为视频地址，例如：
+```json
+{
+    ...,
+    "type": "yt-dlp",
+    "rules": [
+        "https://.*.youtube.com/watch\\?v=([\\w\\-]+).*",
+        "https://x.com/\\w+/status/(\\d+).*",
+        "https://youtu.be/([\\w\\-]+)\\?si=.+"
+    ],
+    "cache": 21600,
+    "endpoint": "https://demo.com/ytdlp/"
+},
+```
+rules字段是白名单, 使用正则匹配
+endpoint指向的服务需要支持下面的curl命令
 ```shell
 curl -X GET https://example.com/api?url=https://www.youtube.com/watch?v=x9X0aII0l70
 ```
 直接返回yt-dlp的输出即可，如需Docker可参考这个[repo](https://github.com/purkylin/youtube-info)
+
+* proxy插件
+```json
+{
+    ...,
+    "type": "proxy",
+    "api_password": "HAWKAPP",
+    "rules": [
+        {
+            "id": "csp_iyftv",
+            "proxy": true,
+            "hls": true
+        },
+        {
+            "id": "csp_Olevod",
+            "proxy": true
+        }
+    ],
+    "endpoint": "https://ddxpxchjmokh.us-west-1.clawcloudrun.com"
+}
+```
+endpoint字段是你的代理服务地址, 代理服务器使用的是`mhdzumair/mediaflow-proxy`服务,可通过docker安装在你的服务器上; api_password字段是你的代理服务密码; rules字段是代理规则, 代理规则中的id需要和vod插件中的api字段一致， 其中hls默认值为ture, proxy默认值为true。
+
+* 其他插件
+
+    TODO
+
+## 支持的JS函数
+
+```javascript
+
+// alert
+alert("Hello World")
+
+// log with parameters
+console.log("Hi")
+console.log("Hi", "Tom")
+console.log("Hi", {name: "Tom"})
+
+// cache
+const v = $cache.get('key')
+$cache.set('key', 'value')
+$cache.del('key')
+
+// network
+const params = new URLSearchParams({
+    wd: "tom",
+    page: "1",
+    size: "10",
+});
+// get with query
+const { data , status_code} = $fetch.get(`http://xx.com?${params.toString()}`, {headers: {}})
+// default method for post: x-www-form-urlencoded
+const { data } = await $fetch.post('http://xx.com', {name: 'xx'}, {headers: {}})
+// custom method for post: application/json
+const { data } = await $fetch.post('http://xx.com', {name: 'xx'}, {headers: {'Content-Type': 'application/json'}})
+
+// parse html
+const cheerio = createCheerio()
+const $ = cheerio.load(data)
+const script = $('#flarum-json-payload').text()
+
+// crypto
+const CryptoJS = createCryptoJS()
+
+// toast
+$utils.toast("This is a toast")
+
+// base64
+base64Decode('....')
+
+// open safari
+$utils.openSafari("https://www.google.com", 'custom User-Agent')
+
+// json
+let obj = {name: 'xx'}
+let str = JSON.stringify(obj) // alias: jsonify
+let obj2 = JSON.parse(str) // alias: argsify
+
+// config
+const $config = JSON.parse($config_str)
+
+// cookie, only for pan plugins, auto select cookie from your configs
+const cookie = $cookie
+
+// sleep, unit: second
+await $sleep(0.2)
+```

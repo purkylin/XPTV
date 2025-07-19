@@ -23,7 +23,7 @@
         "author": "purkylin",
         "version": "0.0.6",
         "update_time": "2025-07-19T11:34:00Z",
-        "endpoint": "https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/CMS/XPTV.json"
+        "endpoint": "https://raw.githubusercontent.com/purkylin/XPTV/refs/heads/dev/CMS/XPTV.json"
     },
     {
         "id": "vod2",

@@ -20,10 +20,9 @@
         "name": "CMS",
         "desc": "VOD",
         "type": "vod",
-        "cache": 21600,
         "author": "purkylin",
-        "version": "0.0.5",
-        "update_time": "2025-07-11T10:45:00Z",
+        "version": "0.0.6",
+        "update_time": "2025-07-19T11:34:00Z",
         "endpoint": "https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/CMS/XPTV.json"
     },
     {

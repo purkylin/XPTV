@@ -1,11 +1,6 @@
 {
   "sites": [
     {
-      "name": "360|点播",
-      "type": 1,
-      "api": "https://360zy.com/api.php/provide/vod/"
-    },
-    {
       "name": "豆瓣|点播",
       "type": 1,
       "api": "https://caiji.dbzy.tv/api.php/provide/vod/at/josn"
@@ -24,11 +19,6 @@
       "name": "金鹰|点播",
       "type": 1,
       "api": "https://jinyingzy.com/api.php/provide/vod/"
-    },
-    {
-      "name": "瀑布盘|点播",
-      "type": 1,
-      "api": "https://qddbrowser.com/api.php/provide/vod/at/josn/"
     },
     {
       "name": "牛牛|点播",
@@ -63,7 +53,8 @@
     {
       "name": "ikun|点播",
       "type": 1,
-      "api": "https://ikunzyapi.com/api.php/provide/vod/at/json"
+      "api": "https://ikunzyapi.com/api.php/provide/vod/at/json",
+      "note": "翻墙"
     },
     {
       "name": "非凡|点播",
@@ -139,6 +130,12 @@
       "name": "新浪|点播",
       "type": 1,
       "api": "https://api.xinlangapi.com/xinlangapi.php/provide/vod/"
+    },
+    {
+      "name": "360|点播",
+      "type": 1,
+      "api": "https://360zy.com/api.php/provide/vod/",
+      "note": "需手动验证"
     }
   ]
 }

@@ -7,6 +7,7 @@ const headers = {
     "Cookie": cookie,
     "Content-Type": "application/json"
 };
+const saveDirName = "Hawk Save";
 
 function getTimestamp() {
     return Date.now().toString();
@@ -108,7 +109,12 @@ async function handleSave(fid, pwd_id, stoken, share_fid_token) {
     }
 }
 
+// public
 async function saveShare(share_url, passcode = "") {
+    if (!cookie) {
+        throw new Error("请先设置Cookie");
+    }
+
     const pwd_id = share_url.split("/s/").pop().split("?")[0];
 
     // request stoken
@@ -123,14 +129,18 @@ async function saveShare(share_url, passcode = "") {
     const stokenResult = JSON.parse(stokenData);
     checkResult(stokenResult);
     const stoken = stokenResult.data?.stoken;
-    console.log("request stoken success")
+    console.log("request stoken success");
+
+    // find save dir
+    const topFiles = await listDir();
+    const pdir_fid = topFiles.find(u => u.file_name === saveDirName)?.fid || '0';
 
     // request detail
     const api_detail = "https://drive-pc.quark.cn/1/clouddrive/share/sharepage/detail";
     const detailParams = new URLSearchParams({
         pwd_id,
         stoken,
-        pdir_fid: "0"
+        pdir_fid: pdir_fid
     });
     const { data: detailData } = await $fetch.get(`${api_detail}?${detailParams.toString()}`, {
         headers
@@ -145,8 +155,8 @@ async function saveShare(share_url, passcode = "") {
     const { file_name: fname, dir: is_dir, fid, share_fid_token, updated_at } = file_list[0];
     console.log("request detail success", file_list[0]);
 
-    // check file
-    let files = await listDir();
+    // check file existed
+    let files = await listDir(pdir_fid);
     let target = files.find(u => u.file_name === fname);
     if (!target) {
         const { fid: save_fid, updated_at: save_updated_at } = await handleSave(fid, pwd_id, stoken, share_fid_token);
@@ -160,7 +170,7 @@ async function saveShare(share_url, passcode = "") {
         // 有误差，600秒内不更新
         if (target.updated_at + 600 * 1000 < updated_at) {
             console.log("time", target.updated_at, updated_at)
-            $utils.toast("文件已更新");
+            $utils.toast("文件有更新");
         }
     }
 
@@ -172,6 +182,7 @@ async function saveShare(share_url, passcode = "") {
     }
 }
 
+// public
 async function getPlayInfo(fid) {
     const params = new URLSearchParams({
         pr: "ucpro",

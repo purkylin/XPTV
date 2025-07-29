@@ -1,4 +1,4 @@
-const cookie = $cookie;
+const cookie = $cookie
 const headers = {
     "User-Agent": "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/94.0.4606.71 Safari/537.36 Core/1.94.225.400 QQBrowser/12.2.5544.400",
     "Origin": "https://pan.quark.cn",
@@ -116,6 +116,7 @@ async function saveShare(share_url, passcode = "") {
     }
 
     const pwd_id = share_url.split("/s/").pop().split("?")[0];
+    console.log('pwd', pwd_id)
 
     // request stoken
     const api_stoken = "https://drive-pc.quark.cn/1/clouddrive/share/sharepage/token";
@@ -134,18 +135,20 @@ async function saveShare(share_url, passcode = "") {
     // find save dir
     const topFiles = await listDir();
     const pdir_fid = topFiles.find(u => u.file_name === saveDirName)?.fid || '0';
+    console.log('parent fid', pdir_fid);
 
     // request detail
     const api_detail = "https://drive-pc.quark.cn/1/clouddrive/share/sharepage/detail";
     const detailParams = new URLSearchParams({
         pwd_id,
         stoken,
-        pdir_fid: pdir_fid
+        pdir_fid: '0'
     });
     const { data: detailData } = await $fetch.get(`${api_detail}?${detailParams.toString()}`, {
         headers
     });
 
+    console.log('before request detail');
     const detailResult = JSON.parse(detailData);
     checkResult(detailResult);
     const file_list = detailResult.data?.list || [];
@@ -159,6 +162,7 @@ async function saveShare(share_url, passcode = "") {
     let files = await listDir(pdir_fid);
     let target = files.find(u => u.file_name === fname);
     if (!target) {
+        console.log('need save share', fname);
         const { fid: save_fid, updated_at: save_updated_at } = await handleSave(fid, pwd_id, stoken, share_fid_token);
         target = {
             fid: save_fid,
@@ -167,6 +171,7 @@ async function saveShare(share_url, passcode = "") {
             updated_at: save_updated_at
         }
     } else {
+        console.log('fond file', fname);
         // 有误差，600秒内不更新
         if (target.updated_at + 600 * 1000 < updated_at) {
             console.log("time", target.updated_at, updated_at)
@@ -197,10 +202,13 @@ async function getPlayInfo(fid) {
     };
 
     const url = "https://drive-pc.quark.cn/1/clouddrive/file/v2/play";
-
-    const { data: playData } = await $fetch.post(`${url}?${params.toString()}`, data, {
+    console.log('before get url request');
+    const { data: playData, headers: resp_headers } = await $fetch.post(`${url}?${params.toString()}`, data, {
         headers
     });
+    console.log(resp_headers);
+    const newCookie = resp_headers["Set-Cookie"]
+    const mergedCookie = mergeCookie(cookie, newCookie)
 
     const playResult = JSON.parse(playData);
     checkResult(playResult);
@@ -211,7 +219,7 @@ async function getPlayInfo(fid) {
         if (video_info) {
             const newHeaders = {
                 "User-Agent": headers["User-Agent"],
-                "Cookie": headers["Cookie"],
+                "Cookie": mergedCookie,
                 "Origin": headers["Origin"],
                 "Referer": "https://pan.quark.cn/",
             }
@@ -236,4 +244,29 @@ function checkResult(result) {
         default:
             throw new Error(result.message)
     }
+}
+
+function mergeCookie(oldStr, newStr) {
+    function parseCookie(cookieStr) {
+        const cookieDict = {};
+        const parts = cookieStr.split(";");
+        for (const item of parts) {
+            const [key, ...rest] = item.trim().split("=");
+            if (key && rest.length > 0) {
+                cookieDict[key.trim()] = rest.join("=").trim();
+            }
+        }
+        return cookieDict;
+    }
+
+    const oldDict = parseCookie(oldStr);
+    const newDict = parseCookie(newStr);
+
+    // 合并：new 中的键覆盖 old 中的键
+    const merged = { ...oldDict, ...newDict };
+
+    // 拼接为字符串
+    return Object.entries(merged)
+        .map(([k, v]) => `${k}=${v}`)
+        .join("; ");
 }

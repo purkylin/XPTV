@@ -49,7 +49,7 @@ async function listDir(pdir_fid = "0", page = "1", size = "100", fetch_total = "
     return files;
 }
 
-async function handleSave(fid, pwd_id, stoken, share_fid_token) {
+async function handleSave(fid, pwd_id, stoken, share_fid_token, pdir_fid) {
     const api_save = "https://drive-pc.quark.cn/1/clouddrive/share/sharepage/save";
     const params = new URLSearchParams({
         pr: "ucpro",
@@ -64,7 +64,7 @@ async function handleSave(fid, pwd_id, stoken, share_fid_token) {
         fid_list: [fid],
         fid_token_list: [share_fid_token],
         stoken,
-        to_pdir_fid: "0",
+        to_pdir_fid: pdir_fid,
         pdir_fid: "0",
         scene: "link"
     };
@@ -163,7 +163,7 @@ async function saveShare(share_url, passcode = "") {
     let target = files.find(u => u.file_name === fname);
     if (!target) {
         console.log('need save share', fname);
-        const { fid: save_fid, updated_at: save_updated_at } = await handleSave(fid, pwd_id, stoken, share_fid_token);
+        const { fid: save_fid, updated_at: save_updated_at } = await handleSave(fid, pwd_id, stoken, share_fid_token, pdir_fid);
         target = {
             fid: save_fid,
             file_name: fname,

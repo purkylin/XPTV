@@ -32,8 +32,8 @@
         "type": "vod",
         "cache": 21600,
         "author": "purkylin",
-        "version": "0.0.5",
-        "update_time": "2025-07-11T10:45:00Z",
+        "version": "0.0.6",
+        "update_time": "2025-08-09T10:45:00Z",
         "endpoint": "https://raw.githubusercontent.com/purkylin/XPTV/refs/heads/dev/Patch/vod.json"
     },
     {
@@ -89,7 +89,7 @@
     },
     {
         "id": "trending",
-        "name": "Trending",
+        "name": "热门",
         "desc": "TMDB Trending",
         "type": "trending",
         "rules": [],

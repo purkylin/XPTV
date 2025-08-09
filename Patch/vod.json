@@ -121,6 +121,12 @@
             "ext": "https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/aowu.js"
         },
         {
+            "name": "如意视频",
+            "type": 3,
+            "api": "csp_rysp",
+            "ext": "https://raw.githubusercontent.com/purkylin/XPTV/dev/js/rysp.js"
+        },
+        {
             "name": "小紅影視",
             "type": 3,
             "api": "csp_xiaohys",

@@ -21,8 +21,8 @@
         "desc": "VOD",
         "type": "vod",
         "author": "purkylin",
-        "version": "0.0.6",
-        "update_time": "2025-07-19T11:34:00Z",
+        "version": "0.0.7",
+        "update_time": "2025-08-14T10:15:00Z",
         "endpoint": "https://raw.githubusercontent.com/purkylin/XPTV/refs/heads/dev/CMS/XPTV.json"
     },
     {

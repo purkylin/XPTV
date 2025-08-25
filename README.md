@@ -14,7 +14,7 @@
     }
 ]
 ```
-目前支持的插件类型：vod, pan, yt-dlp, trending, hot, danmaku, proxy。
+目前支持的插件类型：vod, pan, yt-dlp, trending, hot, danmaku, proxy, iptv, cat-paw-open。
 
 ## 插件定义
 * vod插件
@@ -179,6 +179,28 @@ curl -X GET https://example.com/api?url=https://www.youtube.com/watch?v=x9X0aII0
 }
 ```
 endpoint字段是你的代理服务地址, 代理服务器使用的是`mhdzumair/mediaflow-proxy`服务,可通过docker安装在你的服务器上; api_password字段是你的代理服务密码; rules字段是代理规则, 代理规则中的id需要和vod插件中的api字段一致， 其中hls默认值为ture, proxy默认值为true。
+
+* iptv插件
+
+```json
+{
+    ...,
+    "type": "iptv",
+    "endpoint": "https://example.com/iptv/"
+}
+```
+endpoint字段是你的iptv m3u源地址。
+
+* cat-paw-open插件
+
+```json
+{
+    ...,
+    "type": "cat-paw-open",
+    "endpoint": "https://example.com/cat-paw-open/"
+}
+```
+endpoint字段是你的cat-paw-open源地址。
 
 * 其他插件
 

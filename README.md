@@ -186,10 +186,11 @@ endpoint字段是你的代理服务地址, 代理服务器使用的是`mhdzumair
 {
     ...,
     "type": "iptv",
+    "ua": "Hawk/1.0",
     "endpoint": "https://example.com/iptv/"
 }
 ```
-endpoint字段是你的iptv m3u源地址。
+endpoint字段是你的iptv m3u源地址，ua字段是可选的， 有些源可能需要设置ua。
 
 * cat-paw-open插件
 

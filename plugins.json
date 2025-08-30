@@ -88,6 +88,41 @@
         "endpoint": "https://raw.githubusercontent.com/purkylin/XPTV/dev/Patch/quark.js"
     },
     {
+        "id": "iptv.mursor",
+        "name": "Mursor",
+        "desc": "IPTV",
+        "type": "iptv",
+        "icon": "https://cdn.9228.eu/tv.png",
+        "author": "purkylin",
+        "version": "0.0.1",
+        "update_time": "2025-08-31T10:45:00Z",
+        "ua": "okHttp/Mod-1.1.0",
+        "endpoint": "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/iptv.m3u"
+    },
+    {
+        "id": "iptv.aptv",
+        "name": "APTV",
+        "desc": "IPTV",
+        "type": "iptv",
+        "icon": "https://cdn.9228.eu/tv.png",
+        "author": "purkylin",
+        "version": "0.0.1",
+        "update_time": "2025-08-31T10:45:00Z",
+        "ua": "AptvPlayer/1.2.10",
+        "endpoint": "https://bit.ly/iptv-aptv"
+    },
+    {
+        "id": "cat",
+        "name": "kstore",
+        "desc": "CatPawOpen",
+        "type": "cat-paw-open",
+        "icon": "https://cdn.9228.eu/cat.png",
+        "author": "purkylin",
+        "version": "0.0.1",
+        "update_time": "2025-08-31T10:45:00Z",
+        "endpoint": "https://9280.kstore.space/cat/index.js.md5"
+    },
+    {
         "id": "trending",
         "name": "热门",
         "desc": "TMDB Trending",

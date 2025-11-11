@@ -2,29 +2,29 @@
 const cheerio = createCheerio()
 const UA = "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/130.0.0.0 Safari/537.36"
 const headers = {
-  'Referer': 'https://anime.girigirilove.com/',
-  'Origin': 'https://anime.girigirilove.com',
+  'Referer': 'https://bgm.girigirilove.com/',
+  'Origin': 'https://bgm.girigirilove.com',
   'User-Agent': UA,
 }
 
 const appConfig = {
   ver: 1,
   title: "ギリギリ动漫",
-  site: "https://anime.girigirilove.com",
+  site: "https://bgm.girigirilove.com",
   tabs: [{
     name: '日番',
     ext: {
-      url: 'https://anime.girigirilove.com/show/2--------{page}---/'
+      url: 'https://bgm.girigirilove.com/show/2--------{page}---/'
     },
   }, {
     name: '美番',
     ext: {
-      url: 'https://anime.girigirilove.com/show/3--------{page}---/'
+      url: 'https://bgm.girigirilove.com/show/3--------{page}---/'
     },
   }, {
     name: '剧场版',
     ext: {
-      url: 'https://anime.girigirilove.com/show/21--------{page}---/'
+      url: 'https://bgm.girigirilove.com/show/21--------{page}---/'
     },
   }]
 }
@@ -73,24 +73,43 @@ async function getTracks(ext) {
   
   const $ = cheerio.load(data)
   let gn = []
+  
+  // 获取所有分类标签名称
   $('a.swiper-slide').each((_, each) => {
-    gn.push($(each).text().replace(/[0-9]/g, ''))
+    // 提取文本并清理
+    let text = $(each).text()
+    // 移除数字和可能的多余空格
+    let cleanText = text.replace(/[0-9]/g, '').replace(/\s+/g, ' ').trim()
+    gn.push(cleanText)
   })
 
+  // 如果只有一个分类且gn为空，设置默认分类名
+  if (gn.length === 0) {
+    gn = ['默认']
+  }
+
+  // 遍历每个选集列表
   $('div.anthology-list-box').each((i, each) => {
+    let groupTitle = gn[i] || `选集${i + 1}`
     let group = {
-      title: gn[i],
+      title: groupTitle,
       tracks: [],
     }
-    $(each).find('li.box > a').each((_, item) => {
+    
+    // 获取该分类下的所有视频项
+    $(each).find('a.this-link').each((_, item) => {
+      let trackName = $(item).text().trim()
+      let trackUrl = $(item).attr('href')
+      
       group.tracks.push({
-        name: $(item).text(),
+        name: trackName,
         pan: '',
         ext: {
-          url: appConfig.site + $(item).attr('href')
+          url: appConfig.site + trackUrl
         }
       })
     })
+    
     groups.push(group)
   })
   

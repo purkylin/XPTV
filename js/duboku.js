@@ -10,7 +10,7 @@ const headers = {
 const appConfig = {
   ver: 1,
   title: "独播库",
-  site: "https://tv.gboku.com",
+  site: "https://duboku.info",
   tabs: [{
     name: '首页',
     ext: {

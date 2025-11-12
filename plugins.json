@@ -1,30 +1,13 @@
 [
     {
-        "id": "yt-dlp",
-        "name": "yt-dlp",
-        "desc": "A feature-rich command-line audio/video downloader",
-        "type": "yt-dlp",
-        "icon": "https://cdn.9228.eu/youtube.png",
-        "rules": [
-            "https://.*.youtube.com/watch\\?v=([\\w\\-]+).*",
-            "https://x.com/\\w+/status/(\\d+).*",
-            "https://youtu.be/([\\w\\-]+)\\?si=.+"
-        ],
-        "cache": 21600,
-        "author": "purkylin",
-        "version": "0.0.3",
-        "update_time": "2025-07-11T10:45:00Z",
-        "endpoint": "https://api.9228.eu/ytdlp/"
-    },
-    {
         "id": "vod1",
         "name": "CMS",
         "desc": "VOD",
         "type": "vod",
         "icon": "https://cdn.9228.eu/vod.png?v=1",
         "author": "purkylin",
-        "version": "0.0.5",
-        "update_time": "2025-07-11T10:45:00Z",
+        "version": "0.0.6",
+        "update_time": "2025-11-12T10:45:00Z",
         "endpoint": "https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/CMS/XPTV.json"
     },
     {
@@ -34,8 +17,8 @@
         "type": "vod",
         "icon": "https://cdn.9228.eu/vod.png?v=1",
         "author": "purkylin",
-        "version": "0.0.5",
-        "update_time": "2025-07-11T10:45:00Z",
+        "version": "0.0.6",
+        "update_time": "2025-11-12T10:45:00Z",
         "endpoint": "https://raw.githubusercontent.com/purkylin/XPTV/refs/heads/dev/Patch/vod.json"
     },
     {
@@ -114,18 +97,6 @@
         "endpoint": "https://raw.githubusercontent.com/purkylin/XPTV/dev/Patch/douban.js"
     },
     {
-        "id": "iptv.mursor",
-        "name": "Mursor",
-        "desc": "IPTV",
-        "type": "iptv",
-        "icon": "https://cdn.9228.eu/tv.png",
-        "author": "purkylin",
-        "version": "0.0.1",
-        "update_time": "2025-07-11T10:45:00Z",
-        "ua": "okHttp/Mod-1.2.0",
-        "endpoint": "https://raw.githubusercontent.com/mursor1985/LIVE/refs/heads/main/iptv.m3u"
-    },
-    {
         "id": "cat",
         "name": "kstore",
         "desc": "CatPawOpen",
@@ -137,14 +108,20 @@
         "endpoint": "https://9280.kstore.space/cat/index.js.md5"
     },
     {
-        "id": "Bilibili",
-        "name": "Bilibili",
-        "desc": "弹幕",
-        "type": "danmaku",
-        "icon": "https://cdn.9228.eu/danmaku.png",
+        "id": "yt-dlp",
+        "name": "yt-dlp",
+        "desc": "A feature-rich command-line audio/video downloader",
+        "type": "yt-dlp",
+        "icon": "https://cdn.9228.eu/youtube.png",
+        "rules": [
+            "https://.*.youtube.com/watch\\?v=([\\w\\-]+).*",
+            "https://x.com/\\w+/status/(\\d+).*",
+            "https://youtu.be/([\\w\\-]+)\\?si=.+"
+        ],
+        "cache": 21600,
         "author": "purkylin",
-        "version": "0.0.5",
+        "version": "0.0.3",
         "update_time": "2025-07-11T10:45:00Z",
-        "endpoint": "https://raw.githubusercontent.com/purkylin/XPTV/dev/Patch/danmaku.js"
+        "endpoint": "https://api.9228.eu/ytdlp/"
     }
 ]

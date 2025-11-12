@@ -34,7 +34,7 @@
             "name": "独播库",
             "type": 3,
             "api": "csp_duboku",
-            "ext": "https://raw.githubusercontent.com/fangkuia/XPTV/refs/heads/main/js/duboku.js"
+            "ext": "https://raw.githubusercontent.com/purkylin/XPTV/refs/heads/dev/js/duboku.js"
         },
         {
             "name": "AGE动漫",
@@ -59,12 +59,6 @@
             "type": 3,
             "api": "csp_saohuo",
             "ext": "https://raw.githubusercontent.com/Yswag/xptv-extensions/main/js/saohuo.js"
-        },
-        {
-            "name": "素白白影視",
-            "type": 3,
-            "api": "csp_subaibai",
-            "ext": "https://raw.githubusercontent.com/purkylin/XPTV/refs/heads/dev/js/subaibai.js"
         },
         {
             "name": "星芽短劇",

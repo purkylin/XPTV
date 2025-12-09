@@ -14,7 +14,7 @@
     }
 ]
 ```
-目前支持的插件类型：vod, pan, yt-dlp, trending, hot, danmaku, proxy, iptv, cat-paw-open。
+目前支持的插件类型：vod, pan, yt-dlp, trending, hot, proxy, iptv, cat-paw-open。
 
 ## 插件定义
 * vod插件
@@ -148,15 +148,19 @@ async function getPlayInfo(fid) {
         "https://youtu.be/([\\w\\-]+)\\?si=.+"
     ],
     "cache": 21600,
+    "secret": "",
     "endpoint": "https://demo.com/ytdlp/"
 },
 ```
-rules字段是白名单, 使用正则匹配
-endpoint指向的服务需要支持下面的curl命令
+rules字段是白名单, 使用正则匹配 
+secret是密钥(可选 ) 
+
+endpoint指向的服务需要支持下面的curl命令 
+
 ```shell
 curl -X GET https://example.com/api?url=https://www.youtube.com/watch?v=x9X0aII0l70
 ```
-直接返回yt-dlp的输出即可，如需Docker可参考这个[repo](https://github.com/purkylin/youtube-info)
+直接返回yt-dlp的输出即可，如需Docker可参考这个[repo](https://github.com/purkylin/yt-dlp-api)
 
 * proxy插件
 ```json

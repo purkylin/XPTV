@@ -162,7 +162,19 @@ curl -X GET https://example.com/api?url=https://www.youtube.com/watch?v=x9X0aII0
 ```
 直接返回yt-dlp的输出即可，如需Docker可参考这个[repo](https://github.com/purkylin/yt-dlp-api)
 
-* proxy插件
+* MusicFree
+  
+```json
+{
+    ...,
+    "type": "music",
+    "endpoint": ""
+}
+```
+
+详见[MusicFree](https://github.com/maotoumao/MusicFree)文档
+
+* ~~proxy插件~~ （已废弃）
 ```json
 {
     ...,
